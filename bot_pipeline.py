@@ -14,12 +14,12 @@ class Pipeline:
         if api_key is None:
             self.local = True
             self.pipeline = transformers.pipeline(
-        "text-generation",
-        model=self.model_id,
-        model_kwargs={"torch_dtype": torch.bfloat16},
-        device_map = 'auto',
-        eos_token_id=self.pipeline.tokenizer.eos_token_id
-        )
+                            "text-generation",
+                            model=self.model_id,
+                            model_kwargs={"torch_dtype": torch.bfloat16},
+                            device_map = 'auto',
+                            )
+            eos_token_id=self.pipeline.tokenizer.eos_token_id
         else:
             self.api = True
             self.api_key = api_key
